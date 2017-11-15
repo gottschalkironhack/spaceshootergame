@@ -1,9 +1,9 @@
 (function ($) {
     "use strict";
     var wrapperName = "explode-wrapper";
-    console.log("inside jqueryexplosion " , wrapperName);
+   
     if(!$){
-        console.error("jQuery is needed.");
+        
         return;
     }
     $.fn.explodeRestore = function () {
@@ -94,7 +94,7 @@
             maxWidth = minorDimension / 4;
         }
 
-        console.log("inside jquery explosion Match.myDyingEnemy ", Match.myDyingEnemy);
+        //console.log("inside jquery explosion Match.myDyingEnemy ", Match.myDyingEnemy);
         const $wrapper = $("<div></div>", {
             "class": wrapperName + Match.myDyingEnemy,
         });

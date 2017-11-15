@@ -15,7 +15,9 @@ var Match = {
   matchSpaceshipToVader: function(){
 
     //console.log("matchSpaceshipToVader");
-    if(Match.darthVader.posX==="undefined"){console.log("no enemy here");}
+    if(Match.darthVader.posX==="undefined"){
+      //console.log("no enemy here");
+    }
       //posRightX 820  posX  780
       //Match.currentEnemies[i].posX 760
     else if(
@@ -190,14 +192,16 @@ var Match = {
     },
 
     matchSpaceshipToHeart: function(){
-      if(Match.heart.posX==="undefined"){console.log("no enemy here");}
+      if(Match.heart.posX==="undefined"){ 
+        //console.log("no enemy here");
+       }
 
       else if(
         //pfeilspitze von arrow muss größer als kleiner x wert monster und kleiner als großer x wert monster
         ( Match.heart.posX <= Spaceship.positionX  ) && ( Match.heart.posX >= Spaceship.positionX - 90 ) /*&& ( Spaceship.positionX + 90 <= Match.currentEnemies[i].posX + 100) && ( Spaceship.positionY >= Match.currentEnemies[i].posY ) && ( Spaceship.positionY <= Match.currentEnemies[i].posY + 90 )*/
         ){
           var currentId = Match.heart.id;
-          console.log(" heart hit my spaceship" );
+          //console.log(" heart hit my spaceship" );
 
           $('#flowingheart').remove();
           Match.heart.exists=false;

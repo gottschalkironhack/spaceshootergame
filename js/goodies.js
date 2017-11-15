@@ -9,7 +9,6 @@ var Goodies = {
         interval_heart = setInterval(function(){
           Goodies.heart.exists = true;
           counter++;
-          console.log("generate heart ", counter);
           Goodies.setHeart();
       }, 8000 );
     }
@@ -53,6 +52,5 @@ var Goodies = {
     }
     moveMyHeart();
   }
-
 
 }

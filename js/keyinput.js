@@ -3,47 +3,57 @@ var KeyInput = {
   repeatID : 0,
   posStartBulletY: 0,
 
+  /*moveMyVader: function(){
+    
+        var movingMyVader = function(){
+            Enemies.darthVaderMove = requestAnimationFrame(movingMyVader)
+              Match.darthVader.posX -= 5;
+              //console.log("Match.darthVader.posX", Match.darthVader.posX);
+              //Match.matchSpaceshipToVader();
+              $('#darth-vader').css("left", Match.darthVader.posX);
+              Match.matchSpaceshipToVader();
+              //Match.darthVader.newEnemyIndex = darthVaderMove;
+              if((Match.darthVader.posX) <= 0){
+    
+                  Enemies.darthVader.exists = false;
+                  Match.darthVader = {};
+                  $('#darth-vader').removeClass("vaderGroove");
+                  $('#darth-vader').remove();
+                  cancelAnimationFrame(Enemies.darthVaderMove);
+              }
+          }
+          movingMyVader();
+      },*/
+ 
+ 
   getKeyCodes : function( mykeyCode ){
     switch (mykeyCode){
 
-      //UP
+      //KEY UP
       case 38:
-        //console.log("up");
-      /*  console.log("Spaceship.positionY before", Spaceship.positionY);*/
+        
         if(( Spaceship.positionY - MyGrid.gridUnit ) > ( MyGrid.yLimitTop )){
-          Spaceship.positionY -= MyGrid.gridUnit;
-          //console.log("Spaceship.positionY", Spaceship.positionY);
-          MyGrid.spaceship.style.position="absolute";
-          MyGrid.spaceship.style.top=Spaceship.positionY + "px";
-
+          
+          KeyInput.moveUpSpaceship(); 
+          
         }
         break;
-
-      //DOWN
+     
+      //KEY DOWN
       case 40:
         /*console.log("down");
         console.log("Spaceship.positionY before", Spaceship.positionY);*/
         if(( Spaceship.positionY + MyGrid.gridUnit ) < ( MyGrid.yLimitBottom )){
-          Spaceship.positionY += MyGrid.gridUnit;
-          //console.log("Spaceship.positionY", Spaceship.positionY);
-          MyGrid.spaceship.style.position="absolute";
-          MyGrid.spaceship.style.top=Spaceship.positionY + "px";
+          KeyInput.moveDownSpaceship(); 
+          
         }
-
-
         break;
-        //console.log("down");
-      // SPACE
+       
       case 32:
-        //console.log("space");
+        
         KeyInput.posStartBulletY = Spaceship.positionY + 45;
         KeyInput.posStartBulletX = 90;
-
-        //console.log(ctx);
-
         KeyInput.drawLoop();
-
-        //MyGrid.hViewport
         break;
 
       default: console.log("do nothing");
@@ -53,7 +63,7 @@ var KeyInput = {
     drawLoop : function(){
       var x = 1;
       var counter = 0;
-      //console.log(x);
+     
       var distx = 10;
       var posX1;
       var posX = KeyInput.posStartBulletX;
@@ -65,8 +75,7 @@ var KeyInput = {
       var innerDrawLoop = function(){
         var ctx = MyGrid.canvas.getContext('2d');
         counter++;
-        /*console.log("go innerDrawLoop + counter ", counter);
-        console.log("posX before adding distx", posX);*/
+       
           KeyInput.repeatID = requestAnimationFrame(innerDrawLoop);
           posX1=posX;
           posX = posX + distx;
@@ -103,5 +112,24 @@ var KeyInput = {
       ctx.fillRect(posX, posY, 50, 1);
       /*console.log("inside draw before calling Match posX ", posX );
       console.log("inside draw before calling Match posY ", posY );*/
+    },
+
+    moveUpSpaceship: function(){
+      
+      KeyInput.moveUp = requestAnimationFrame( KeyInput.moveUpSpaceship )
+      Spaceship.positionY -= MyGrid.gridUnit;
+      MyGrid.spaceship.style.position="absolute";
+      MyGrid.spaceship.style.top=Spaceship.positionY + "px";   
+      cancelAnimationFrame(KeyInput.moveUp);   
+    },
+
+    moveDownSpaceship: function(){
+      
+      KeyInput.moveDown = requestAnimationFrame( KeyInput.moveDownSpaceship )
+      Spaceship.positionY += MyGrid.gridUnit;
+      //console.log("Spaceship.positionY", Spaceship.positionY);
+      MyGrid.spaceship.style.position="absolute";
+      MyGrid.spaceship.style.top=Spaceship.positionY + "px";
+      cancelAnimationFrame(KeyInput.moveDown);   
     }
 }

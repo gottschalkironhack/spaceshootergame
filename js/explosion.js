@@ -1,7 +1,7 @@
 function explode(currentId){
   var myEnemy = $('#' + currentId);
   //$("#" + currentId).fadeOut(2000);
-  console.log("inside exlpode", myEnemy);
+  //console.log("inside exlpode", myEnemy);
   $("#" + currentId).explode({
     radius : 300,
     minRadius : 20,
@@ -20,7 +20,7 @@ function explode(currentId){
   });
 
   var currentExplosionDebris = "explode-wrapper" + currentId;
-  console.log(currentExplosionDebris);
+  //console.log(currentExplosionDebris);
   $("."+currentExplosionDebris).fadeOut(1200);
   //Match.myDyingEnemy
   //$('#' + currentId).explodeRestore();

@@ -6,7 +6,6 @@ var Enemies = {
 
 //-> for each loop in keyinput match grid position of all currentEnemies to position of bullet and get respective ID of SVG
 
-
   enemiesimg: [
     {
       id: "proto0",
@@ -56,14 +55,14 @@ var Enemies = {
   generateDarthVader: function(){
       var CountDown = 0;
       var timeIntervalVader= 8000;
-      console.log("darth vader", Enemies.darthVader.exists);
+      //console.log("darth vader", Enemies.darthVader.exists);
       if(!Enemies.darthVader.exists){
-        console.log("condition met");
+       // console.log("condition met");
       interval_vader = setInterval(function(){
         Enemies.darthVader.exists = true;
         if (CountDown === 20){
           timeIntervalEnemies = 5000;
-          console.log("stop generating enemies");
+          //console.log("stop generating enemies");
           clearInterval(interval_enemies); // Stopping the counter when reaching 0.
         }
         Enemies.setDarthVader(interval_vader);
@@ -101,7 +100,7 @@ var Enemies = {
           newLevelCounter++;
         }, 500 );
         timeIntervalEnemies = 500;
-        console.log("stop generating enemies");
+        //console.log("stop generating enemies");
         clearInterval(interval_enemies);
         Enemies.generateEnemiesLevel2(timeIntervalEnemies);
          // Stopping the counter when reaching 0.
@@ -145,9 +144,8 @@ var Enemies = {
     Match.darthVader.posY = posY;
     $('#darth-vader').addClass("vaderGroove");
     Enemies.moveMyVader();
-
-
   },
+
   moveMyVader: function(){
 
     var movingMyVader = function(){
