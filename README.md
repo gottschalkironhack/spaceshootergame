@@ -1,7 +1,8 @@
 # spaceshootergame
 Spaceshooter Game 
 
+First final project at Ironhack Bootcamp - Plain Javascript
 
-PLEASE TRY THE GAME HERE
+PLEASE PLAY THE GAME HERE
 
 https://gottschalkironhack.github.io/spaceshootergame/
